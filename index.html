@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+  <head>
+
+    <title> Salman's Digital Clock </title>
+
+  </head>
+
+
+  <body>
+
+ <h1 align=center>Salman's Digital Clock</h1>
+
+
+<table width="50%" hight="50%" align=center border=1>
+
+<tr>
+  <th>Time</th>
+  <th>Date</th>
+</tr>
+<tr>
+  <th id="time"></th>
+  <th id="date"></th>
+</tr>
+
+</table>
+
+
+  </body>
+
+  <script type="text/javascript">
+    function startTime() {
+          const today = new Date();
+
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          let date = today.getDate();
+          let y = today.getFullYear();
+          let month = today.getMonth();
+          m = checkTime(m);
+          s = checkTime(s);
+          setTimeout(startTime, 1000);
+          document.getElementById('time').innerHTML =  h + ":" + m + ":" + s ;
+          document.getElementById('date').innerHTML =  date + "/" + month +"/"+ y;
+        }
+
+        startTime();
+
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};
+          return i;
+        }
+
+
+
+  </script>
+</html>
